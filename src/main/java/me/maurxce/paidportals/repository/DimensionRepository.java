@@ -32,6 +32,10 @@ public class DimensionRepository implements Syncable {
     }
 
     public boolean allDimensionsUnlocked() {
+        if (dimensions.isEmpty()) {
+            return false;
+        }
+
         return dimensions.values().stream().noneMatch(Boolean::booleanValue);
     }
 
