@@ -2,10 +2,9 @@ package me.maurxce.paidportals;
 
 import lombok.Getter;
 import md.schorn.spigothelper.configuration.Config;
-import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter
-public final class PaidPortals extends JavaPlugin {
+public final class PaidPortals extends SpigotPlugin {
 
     public static PaidPortals getInstance() {
         return getPlugin(PaidPortals.class);
