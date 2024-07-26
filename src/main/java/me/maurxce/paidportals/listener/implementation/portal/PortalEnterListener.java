@@ -1,4 +1,4 @@
-package me.maurxce.paidportals.listener.implementation;
+package me.maurxce.paidportals.listener.implementation.portal;
 
 import md.schorn.spigothelper.listener.SimpleListener;
 import me.maurxce.paidportals.PaidPortals;
