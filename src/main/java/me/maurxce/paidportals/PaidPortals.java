@@ -1,9 +1,15 @@
 package me.maurxce.paidportals;
 
 import lombok.Getter;
+import lombok.Setter;
 import md.schorn.spigothelper.configuration.Config;
+import md.schorn.spigothelper.logger.Logger;
 import me.maurxce.paidportals.database.Database;
 import me.maurxce.paidportals.database.DatabaseFactory;
+import me.maurxce.paidportals.dependency.DependencyService;
+import me.maurxce.paidportals.dependency.optional.PlaceholderHook;
+import me.maurxce.paidportals.dependency.required.VaultHook;
+import me.maurxce.paidportals.language.Language;
 import me.maurxce.paidportals.repository.DimensionRepository;
 import me.maurxce.paidportals.repository.EconomyRepository;
 
@@ -22,10 +28,15 @@ public final class PaidPortals extends SpigotPlugin {
     private EconomyRepository economyRepository;
     private DimensionRepository dimensionRepository;
 
+    @Setter private VaultHook vaultHook;
+    @Setter private PlaceholderHook placeholderHook;
+
     @Override
     public void onEnable() {
         this.config = new Config("config.yml", this);
         this.lang = new Config("lang.yml", this);
+
+        Logger.setPrefix(Language.PREFIX);
 
         this.database = new DatabaseFactory(this)
                 .setupDatabase()
@@ -33,6 +44,8 @@ public final class PaidPortals extends SpigotPlugin {
 
         this.economyRepository = new EconomyRepository(database);
         this.dimensionRepository = new DimensionRepository(database);
+
+        new DependencyService(this);
     }
 
     @Override
