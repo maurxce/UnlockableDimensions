@@ -96,7 +96,7 @@ public class MySQL implements Database {
             exception.printStackTrace();
         }
 
-        return BigDecimal.ONE.negate();
+        return BigDecimal.ZERO;
     }
 
     @Override
