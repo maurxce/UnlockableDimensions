@@ -26,7 +26,7 @@ public class VaultHook extends SimpleHook {
         return economy.has(player, balance);
     }
 
-    public void withdraw(Player player, double amount) {
-        economy.withdrawPlayer(player, amount);
+    public boolean withdraw(Player player, double amount) {
+        return economy.withdrawPlayer(player, amount).transactionSuccess();
     }
 }
