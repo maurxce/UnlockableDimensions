@@ -1,20 +1,20 @@
-successful-reload: "&5&l[UD] &dSuccessfully reloaded config files."
-successful-reset: "&5&l[UD] &dSuccessfully reset dimensions pool."
+GENERIC_ERROR: "&cAn Error occurred."
+MISSING_PERMISSION: "&cYou don't have permission to do this."
+INCORRECT_USAGE: "&cIncorrect usage."
 
-no-permission: "&5&l[UD] &dSorry! You don't have permission to execute this command."
-not-enough-args: "&5&l[UD] &dNot enough arguments provided! &7&oUsage: %usage%" # %usage%
-invalid-args: "&5&l[UD] &dInvalid arguments provided! &7&oUsage: %usage%" # %usage%
+RELOADING: "&aReloading files..."
+RELOADED: "&aReloaded files."
 
-insufficient-funds: "&5&l[UD] &dYou don't have enough money for this."
-player-paid: "&5&l[UD] &dPlayer &o%username% &dhas paid &5&l$%amount% &dinto the dimension pool!" # %username%, %amount%
-dimension-unlocked: "&5&l[UD] &dUnlocked dimension &5&l%dimension%" # %dimension%
+INSUFFICIENT_FUNDS: "&cYou don't have enough money to do this!"
+POOL_CLOSED: "All dimensions have been unlocked already."
 
-dimensions-already-unlocked: "&5&l[UD] All dimensions are already unlocked."
+PAY_ANNOUNCEMENT: "&l{username} &rhas contributed &l${amount}"
+UNLOCK_ANNOUNCEMENT: "&l{dimension} &rhas been unlocked!"
 
-portal-creation: "&5&l[UD] &dSorry! Portal creation is currently disabled."
-portal-enter: "&5&l[UD] &dSorry! This dimension isn't unlocked yet."
+PORTAL_CREATION: "&cPortal creation is currently disabled!"
+PORTAL_ENTER: "&cThis dimension is still locked!"
 
-current-pool-amount: "&5&l[UD] &dThere's currently &o$%amount% &din the pool." # %amount%
+POOL_BALANCE: "There are currently &l${amount} &rin the dimensions pool!"
 
-placeholder-dimension-locked: "&c&lLocked"
-placeholder-dimension-unlocked: "&a&lUnlocked"
+PLACEHOLDER_LOCKED: "&c&lLocked"
+PLACEHOLDER_UNLOCKED: "&a&lUnlocked"

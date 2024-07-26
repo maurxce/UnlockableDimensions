@@ -1,59 +1,39 @@
 name: PaidPortals
 version: '${project.version}'
-main: me.maurxce.paidportals.Main
+main: me.maurxce.paidportals.PaidPortals
 api-version: 1.19
-prefix: PaidPortals
 authors: [ maurxce ]
-description: A plugin which locks dimensions until a certain amount of money was paid by the players (in a pool)
-website: https://maurxce.dev/
-depend: [ Vault, PlaceholderAPI ]
+description: Use Economy to unlock dimensions!
+website: https://schorn.md/
+depend: [ Vault ]
+softdepend: [ PlaceholderAPI ]
 
 commands:
-  reload:
-    description: reload config files
-    usage: /<command>
-    permission: paidportals.reload
-
-  resetpool:
-    description: reset the pool
-    usage: /<command>
-    permission: paidportals.resetpool
-
-  viewpool:
-    description: view the amount of money in the pool
-    usage: /<command>
-    permission: paidportals.viewpool
-
-  dpay:
-    description: pay a specific amount of money into the dimensions pool
-    usage: /<command> [amount]
-    aliases:
-      - dimensionpool
-      - dimensionpay
-    permission: paidportals.dimensionpay
-
   paidportals:
-    description: info command
+    description: Command to access PaidPortals
     usage: /<command>
-    aliases:
-      - pp
+    aliases: [ pp ]
 
 permissions:
+  paidportals.use:
+    description: Permission to access the `/paidportals` command
+    default: true
+
+  paidportals.pay:
+    description: Permission to access the `/paidportals pay` command
+    default: true
+
+  paidportals.balance:
+    description: Permission to access the `/paidportals balance` command
+    default: true
+
   paidportals.reload:
-    description: permission to reload config files
+    description: Permission to access the `/paidportals reload` command
     default: op
 
-  paidportals.resetpool:
-    description: permission to reset the dimension pool
+  paidportals.reset:
+    description: Permission to access the `/paidportals reset` command
     default: op
-
-  paidportals.viewpool:
-    description: permission to view the dimension pool
-    default: true
-
-  paidportals.dimensionpay:
-    description: permission to pay into all pools
-    default: true
 
   paidportals.ignore:
     description: Allows players to use portals even when it's locked for normal players

@@ -1,16 +1,14 @@
-#   UnlockableDimensions
-#   by maurxce
+#   PaidPortals
+#   by maurxce @ https://schorn.md/
 
-# METRICS (bStats)
-metrics: true
+prefix: "&5&l[PaidPortals]&r"
 
 # DATABASE
-# types: mysql, mongodb, yaml
+# types: mysql, mongodb, sqlite
 # default ports: 3306 (mysql), 27017 (mongodb)
 database:
-  type: yaml
+  type: sqlite
 
-  # (none of the following database settings apply to yaml)
   host: localhost
   port: 3306
 
@@ -33,6 +31,6 @@ the_end:
 player-portal-create: false
 player-portal-enter: false
 
-#   Support:
-#   https://maurxce.dev/github
-#   https://maurxce.dev/discord
+#   Support
+#   https://schorn.md/github
+#   https://schorn.md/discord
