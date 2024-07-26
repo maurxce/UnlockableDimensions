@@ -12,12 +12,11 @@ public class DatabaseFactory {
 
     public Database setupDatabase() {
         Config config = plugin.getConfig();
-        String type = config.getString("database.type", "sqlite");
+        String type = config.getString("database.type", "mysql");
 
         return switch (type.toUpperCase()) {
             case "MYSQL" -> new MySQL(plugin);
             case "MONGODB" -> null;
-            case "SQLITE" -> null;
             default -> {
                 Logger.severe("Invalid database configuration!");
                 plugin.disable();

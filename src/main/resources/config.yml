@@ -4,7 +4,7 @@
 prefix: "&5&l[PaidPortals]&r"
 
 # DATABASE
-# types: mysql, mongodb, sqlite
+# types: mysql, mongodb
 # default ports: 3306 (mysql), 27017 (mongodb)
 database:
   type: sqlite

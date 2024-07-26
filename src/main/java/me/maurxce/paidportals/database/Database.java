@@ -7,11 +7,6 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public interface Database {
-    enum HikariType {
-        MYSQL,
-        SQLITE
-    }
-
     Database connect();
     void disconnect();
     void init(long start);

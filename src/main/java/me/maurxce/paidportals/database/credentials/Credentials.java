@@ -39,30 +39,13 @@ public record Credentials(
         return !this.equals(INVALID);
     }
 
-    public String getJdbcUrl(Database.HikariType type) {
-        return switch (type) {
-            case MYSQL -> "jdbc:mysql://" + host + ":" + port + "/" + database;
-            case SQLITE -> {
-                PaidPortals plugin = PaidPortals.getInstance();
-                File file = new File(plugin.getDataFolder(), "data.db");
-
-                if (!file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (IOException exception) {
-                        Logger.severe("Unable to create file " + file.getAbsolutePath());
-                        plugin.disable();
-                    }
-                }
-
-                yield "jdbc:sqlite:" + database;
-            }
-        };
+    public String getJdbcUrl() {
+        return "jdbc:mysql://" + host + ":" + port + "/" + database;
     }
 
-    public HikariConfig getHikariConfig(Database.HikariType type) {
+    public HikariConfig getHikariConfig() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(getJdbcUrl(type));
+        config.setJdbcUrl(getJdbcUrl());
         config.setUsername(username);
         config.setPassword(password);
         config.setPoolName("PaidPortals");
