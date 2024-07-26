@@ -2,6 +2,10 @@ package me.maurxce.paidportals;
 
 import lombok.Getter;
 import md.schorn.spigothelper.configuration.Config;
+import me.maurxce.paidportals.database.Database;
+import me.maurxce.paidportals.database.DatabaseFactory;
+import me.maurxce.paidportals.repository.DimensionRepository;
+import me.maurxce.paidportals.repository.EconomyRepository;
 
 @Getter
 public final class PaidPortals extends SpigotPlugin {
@@ -13,10 +17,19 @@ public final class PaidPortals extends SpigotPlugin {
     private Config config;
     private Config lang;
 
+    private Database database;
+
+    private EconomyRepository economyRepository;
+    private DimensionRepository dimensionRepository;
+
     @Override
     public void onEnable() {
         this.config = new Config("config.yml", this);
         this.lang = new Config("lang.yml", this);
+
+        this.database = new DatabaseFactory(this)
+                .setupDatabase()
+                .connect();
     }
 
     @Override
