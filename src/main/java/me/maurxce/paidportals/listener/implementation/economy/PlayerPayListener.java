@@ -46,9 +46,14 @@ public class PlayerPayListener extends SimpleListener {
     }
 
     private void processUnlock(BigDecimal total) {
-        for (World.Environment environment : dimensionRepository.getLockedDimensions()) {
+        for (World.Environment environment : dimensionRepository.getPermitted()) {
             boolean isPoolEnabled = settingsRepository.getPoolEnabled().containsKey(environment);
             if (!isPoolEnabled) {
+                continue;
+            }
+
+            boolean isLocked = dimensionRepository.isDimensionLocked(environment);
+            if (!isLocked) {
                 continue;
             }
 
