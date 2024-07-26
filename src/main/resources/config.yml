@@ -25,7 +25,7 @@ nether:
   enable: true
   unlock-amount: 5000
 
-the_end:
+the-end:
   enable: true
   unlock-amount: 20000
 

@@ -10,6 +10,7 @@ import me.maurxce.paidportals.dependency.DependencyService;
 import me.maurxce.paidportals.dependency.optional.PlaceholderHook;
 import me.maurxce.paidportals.dependency.required.VaultHook;
 import me.maurxce.paidportals.language.Language;
+import me.maurxce.paidportals.listener.ListenerService;
 import me.maurxce.paidportals.repository.DimensionRepository;
 import me.maurxce.paidportals.repository.EconomyRepository;
 import me.maurxce.paidportals.repository.SettingsRepository;
@@ -49,8 +50,10 @@ public final class PaidPortals extends SpigotPlugin {
         this.economyRepository = new EconomyRepository(database);
         this.dimensionRepository = new DimensionRepository(database);
 
+        new SyncScheduler(this);
         new DependencyService(this);
         new SyncScheduler(this);
+        new ListenerService(this);
     }
 
     @Override
