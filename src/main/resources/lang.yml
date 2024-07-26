@@ -2,17 +2,17 @@ GENERIC_ERROR: "&cAn Error occurred."
 MISSING_PERMISSION: "&cYou don't have permission to do this."
 INCORRECT_USAGE: "&cIncorrect usage."
 
-RELOADING: "&aReloading files..."
-RELOADED: "&aReloaded files."
-
 INSUFFICIENT_FUNDS: "&cYou don't have enough money to do this!"
 POOL_CLOSED: "All dimensions have been unlocked already."
 
+PORTAL_CREATION_DISABLED: "&cPortal creation is currently disabled!"
+PORTAL_ENTER_DISABLED: "&cThis dimension is still locked!"
+
+RELOADING: "&aReloading files..."
+RELOADED: "&aReloaded files."
+
 PAY_ANNOUNCEMENT: "&l{username} &rhas contributed &l${amount}"
 UNLOCK_ANNOUNCEMENT: "&l{dimension} &rhas been unlocked!"
-
-PORTAL_CREATION: "&cPortal creation is currently disabled!"
-PORTAL_ENTER: "&cThis dimension is still locked!"
 
 POOL_BALANCE: "There are currently &l${amount} &rin the dimensions pool!"
 
