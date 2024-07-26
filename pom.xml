@@ -33,15 +33,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
-                <configuration>
-                    <relocations>
-                        <relocation>
-                            <pattern>org.bstats</pattern>
-                            <shadedPattern>me.maurxce.paidportals</shadedPattern>
-                        </relocation>
-                    </relocations>
-                </configuration>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
