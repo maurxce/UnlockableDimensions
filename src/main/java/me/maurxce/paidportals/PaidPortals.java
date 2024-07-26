@@ -30,6 +30,9 @@ public final class PaidPortals extends SpigotPlugin {
         this.database = new DatabaseFactory(this)
                 .setupDatabase()
                 .connect();
+
+        this.economyRepository = new EconomyRepository(database);
+        this.dimensionRepository = new DimensionRepository(database);
     }
 
     @Override
