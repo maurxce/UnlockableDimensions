@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import md.schorn.spigothelper.configuration.Config;
 import md.schorn.spigothelper.logger.Logger;
+import me.maurxce.paidportals.command.CommandService;
 import me.maurxce.paidportals.database.Database;
 import me.maurxce.paidportals.database.DatabaseFactory;
 import me.maurxce.paidportals.dependency.DependencyService;
@@ -52,8 +53,8 @@ public final class PaidPortals extends SpigotPlugin {
 
         new SyncScheduler(this);
         new DependencyService(this);
-        new SyncScheduler(this);
         new ListenerService(this);
+        new CommandService(this);
     }
 
     @Override
