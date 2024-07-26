@@ -39,7 +39,7 @@ public class MySQL implements Database {
             return null;
         }
 
-        HikariConfig hikariConfig = credentials.getHikariConfig(HikariType.MYSQL);
+        HikariConfig hikariConfig = credentials.getHikariConfig();
         this.dataSource = new HikariDataSource(hikariConfig);
 
         if (!dataSource.isRunning()) {
