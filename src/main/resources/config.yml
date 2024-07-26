@@ -16,6 +16,9 @@ database:
   username: portal_user
   password: ~
 
+# CACHE
+sync-interval-minutes: 15
+
 # ECONOMY POOL SETTINGS
 # unlock-amount: total amount the players need to pay the pool to unlock a dimension
 nether:
