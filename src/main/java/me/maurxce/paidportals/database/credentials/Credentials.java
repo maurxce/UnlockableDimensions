@@ -1,7 +1,13 @@
-package me.maurxce.paidportals.database;
+package me.maurxce.paidportals.database.credentials;
 
 import com.zaxxer.hikari.HikariConfig;
+import md.schorn.spigothelper.logger.Logger;
+import me.maurxce.paidportals.PaidPortals;
+import me.maurxce.paidportals.database.Database;
 import org.bukkit.configuration.ConfigurationSection;
+
+import java.io.File;
+import java.io.IOException;
 
 public record Credentials(
         String host,
@@ -33,13 +39,30 @@ public record Credentials(
         return !this.equals(INVALID);
     }
 
-    public String getJdbcUrl() {
-        return "jdbc:mysql://" + host + ":" + port + "/" + database;
+    public String getJdbcUrl(Database.HikariType type) {
+        return switch (type) {
+            case MYSQL -> "jdbc:mysql://" + host + ":" + port + "/" + database;
+            case SQLITE -> {
+                PaidPortals plugin = PaidPortals.getInstance();
+                File file = new File(plugin.getDataFolder(), "data.db");
+
+                if (!file.exists()) {
+                    try {
+                        file.createNewFile();
+                    } catch (IOException exception) {
+                        Logger.severe("Unable to create file " + file.getAbsolutePath());
+                        plugin.disable();
+                    }
+                }
+
+                yield "jdbc:sqlite:" + database;
+            }
+        };
     }
 
-    public HikariConfig getHikariConfig() {
+    public HikariConfig getHikariConfig(Database.HikariType type) {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(getJdbcUrl());
+        config.setJdbcUrl(getJdbcUrl(type));
         config.setUsername(username);
         config.setPassword(password);
         config.setPoolName("PaidPortals");

@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import md.schorn.spigothelper.configuration.Config;
 import md.schorn.spigothelper.logger.Logger;
 import me.maurxce.paidportals.PaidPortals;
-import me.maurxce.paidportals.database.Credentials;
+import me.maurxce.paidportals.database.credentials.Credentials;
 import me.maurxce.paidportals.database.Database;
 import me.maurxce.paidportals.database.Query;
 import org.bukkit.World;
@@ -39,7 +39,7 @@ public class MySQL implements Database {
             return null;
         }
 
-        HikariConfig hikariConfig = credentials.getHikariConfig();
+        HikariConfig hikariConfig = credentials.getHikariConfig(HikariType.MYSQL);
         this.dataSource = new HikariDataSource(hikariConfig);
 
         if (!dataSource.isRunning()) {
