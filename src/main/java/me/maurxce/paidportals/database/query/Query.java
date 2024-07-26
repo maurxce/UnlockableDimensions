@@ -1,4 +1,4 @@
-package me.maurxce.paidportals.database;
+package me.maurxce.paidportals.database.query;
 
 public class Query {
     // ========== ECONOMY ==========

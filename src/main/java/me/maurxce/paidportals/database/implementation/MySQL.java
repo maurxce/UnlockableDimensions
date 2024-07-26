@@ -8,7 +8,7 @@ import md.schorn.spigothelper.logger.Logger;
 import me.maurxce.paidportals.PaidPortals;
 import me.maurxce.paidportals.database.credentials.Credentials;
 import me.maurxce.paidportals.database.Database;
-import me.maurxce.paidportals.database.Query;
+import me.maurxce.paidportals.database.query.Query;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 
