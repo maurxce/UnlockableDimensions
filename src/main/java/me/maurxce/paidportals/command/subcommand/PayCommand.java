@@ -37,13 +37,13 @@ public class PayCommand implements Subcommand {
         Player player = context.getPlayer();
         List<String> args = context.args();
 
-        if (args.isEmpty()) {
+        if (args.isEmpty() || args.size() < 2) {
             return Language.INCORRECT_USAGE;
         }
 
         double amount;
         try {
-            amount = Double.parseDouble(args.get(0));
+            amount = Double.parseDouble(args.get(1));
         } catch (NumberFormatException ignore) {
             return Language.INCORRECT_USAGE;
         }
