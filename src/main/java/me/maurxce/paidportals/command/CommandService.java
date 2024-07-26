@@ -8,6 +8,7 @@ import me.maurxce.paidportals.command.contract.Subcommand;
 import me.maurxce.paidportals.command.subcommand.BalanceCommand;
 import me.maurxce.paidportals.command.subcommand.InfoCommand;
 import me.maurxce.paidportals.command.subcommand.PayCommand;
+import me.maurxce.paidportals.command.subcommand.ReloadCommand;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +28,7 @@ public class CommandService extends CommandRouter {
         subcommands.put(FALLBACK, new InfoCommand(plugin));
         subcommands.put("pay", new PayCommand(plugin));
         subcommands.put("balance", new BalanceCommand(plugin));
+        subcommands.put("reload", new ReloadCommand(plugin));
 
         return subcommands;
     }
