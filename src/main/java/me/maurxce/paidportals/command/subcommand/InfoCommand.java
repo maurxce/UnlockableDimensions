@@ -13,8 +13,8 @@ import org.bukkit.plugin.PluginDescriptionFile;
 public class InfoCommand implements Subcommand {
     private final PluginDescriptionFile description;
 
-    public InfoCommand(PaidPortals plugin) {
-        this.description = plugin.getDescription();
+    public InfoCommand() {
+        this.description = PaidPortals.getInstance().getDescription();
     }
 
     @Override

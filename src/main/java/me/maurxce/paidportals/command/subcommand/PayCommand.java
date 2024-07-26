@@ -18,7 +18,8 @@ public class PayCommand implements Subcommand {
     private final DimensionRepository dimensionRepository;
     private final VaultHook vaultHook;
 
-    public PayCommand(PaidPortals plugin) {
+    public PayCommand() {
+        PaidPortals plugin = PaidPortals.getInstance();
         this.dimensionRepository = plugin.getDimensionRepository();
         this.vaultHook = plugin.getVaultHook();
     }

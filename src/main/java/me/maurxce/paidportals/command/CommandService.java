@@ -16,21 +16,19 @@ import java.util.Map;
 
 @Command(name = "paidportals", permission = "paidportals.use", sender = SenderType.ANY)
 public class CommandService extends CommandRouter {
-    private final PaidPortals plugin;
 
     public CommandService(PaidPortals plugin) {
-        this.plugin = plugin;
         register(plugin);
     }
 
     @Override
     protected Map<String, Subcommand> getSubcommands() {
         Map<String, Subcommand> subcommands = new HashMap<>();
-        subcommands.put(FALLBACK, new InfoCommand(plugin));
-        subcommands.put("pay", new PayCommand(plugin));
-        subcommands.put("balance", new BalanceCommand(plugin));
-        subcommands.put("reload", new ReloadCommand(plugin));
-        subcommands.put("reset", new ResetCommand(plugin));
+        subcommands.put(FALLBACK, new InfoCommand());
+        subcommands.put("pay", new PayCommand());
+        subcommands.put("balance", new BalanceCommand());
+        subcommands.put("reload", new ReloadCommand());
+        subcommands.put("reset", new ResetCommand());
 
         return subcommands;
     }

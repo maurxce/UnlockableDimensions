@@ -13,8 +13,8 @@ import java.math.BigDecimal;
 public class ResetCommand implements Subcommand {
     private final EconomyRepository economyRepository;
 
-    public ResetCommand(PaidPortals plugin) {
-        this.economyRepository = plugin.getEconomyRepository();
+    public ResetCommand() {
+        this.economyRepository = PaidPortals.getInstance().getEconomyRepository();
     }
 
     @Override

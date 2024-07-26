@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 public class BalanceCommand implements Subcommand {
     private final EconomyRepository economyRepository;
 
-    public BalanceCommand(PaidPortals plugin) {
-        this.economyRepository = plugin.getEconomyRepository();
+    public BalanceCommand() {
+        this.economyRepository = PaidPortals.getInstance().getEconomyRepository();
     }
 
     @Override
