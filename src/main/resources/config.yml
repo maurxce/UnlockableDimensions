@@ -14,7 +14,7 @@ database:
 
   name: paidportals
   username: portal_user
-  password:
+  password: ~
 
 # ECONOMY POOL SETTINGS
 # unlock-amount: total amount the players need to pay the pool to unlock a dimension
