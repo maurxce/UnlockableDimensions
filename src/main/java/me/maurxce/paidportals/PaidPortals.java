@@ -12,6 +12,7 @@ import me.maurxce.paidportals.dependency.required.VaultHook;
 import me.maurxce.paidportals.language.Language;
 import me.maurxce.paidportals.repository.DimensionRepository;
 import me.maurxce.paidportals.repository.EconomyRepository;
+import me.maurxce.paidportals.repository.SettingsRepository;
 import me.maurxce.paidportals.scheduler.SyncScheduler;
 
 @Getter
@@ -26,6 +27,7 @@ public final class PaidPortals extends SpigotPlugin {
 
     private Database database;
 
+    private SettingsRepository settingsRepository;
     private EconomyRepository economyRepository;
     private DimensionRepository dimensionRepository;
 
@@ -43,6 +45,7 @@ public final class PaidPortals extends SpigotPlugin {
                 .setupDatabase()
                 .connect();
 
+        this.settingsRepository = new SettingsRepository(config);
         this.economyRepository = new EconomyRepository(database);
         this.dimensionRepository = new DimensionRepository(database);
 
