@@ -15,6 +15,7 @@ PAY_ANNOUNCEMENT: "&l{username} &rhas contributed &l${amount}"
 UNLOCK_ANNOUNCEMENT: "&l{dimension} &rhas been unlocked!"
 
 POOL_BALANCE: "There are currently &l${amount} &rin the dimensions pool!"
+POOL_RESET: "The economy pool has been reset!"
 
 PLACEHOLDER_LOCKED: "&c&lLocked"
 PLACEHOLDER_UNLOCKED: "&a&lUnlocked"

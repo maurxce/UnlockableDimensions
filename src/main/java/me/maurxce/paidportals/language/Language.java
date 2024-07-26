@@ -24,6 +24,7 @@ public class Language {
     public static final String UNLOCK_ANNOUNCEMENT;
 
     public static final String POOL_BALANCE;
+    public static final String POOL_RESET;
 
     public static final String PLACEHOLDER_LOCKED;
     public static final String PLACEHOLDER_UNLOCKED;
@@ -52,6 +53,7 @@ public class Language {
         UNLOCK_ANNOUNCEMENT = fetch(lang, "UNLOCK_ANNOUNCEMENT", "&l{dimension} &rhas been unlocked!");
 
         POOL_BALANCE = fetch(lang, "POOL_BALANCE", "There are currently &l${amount} &rin the dimensions pool!");
+        POOL_RESET = fetch(lang, "POOL_RESET", "The economy pool has been reset!");
 
         PLACEHOLDER_LOCKED = fetch(lang, "PLACEHOLDER_LOCKED", "&c&lLocked");
         PLACEHOLDER_UNLOCKED = fetch(lang, "PLACEHOLDER_UNLOCKED", "&a&lUnlocked");
