@@ -61,6 +61,6 @@ public class Language {
 
     private static String fetch(Config config, String path, String def) {
         String message = config.getString(path, def, Chat::translate);
-        return PREFIX + message;
+        return PREFIX + " " + message;
     }
 }
