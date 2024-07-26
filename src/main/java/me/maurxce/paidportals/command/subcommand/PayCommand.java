@@ -2,6 +2,7 @@ package me.maurxce.paidportals.command.subcommand;
 
 import md.schorn.spigothelper.command.Context;
 import me.maurxce.paidportals.PaidPortals;
+import me.maurxce.paidportals.command.Commands;
 import me.maurxce.paidportals.command.contract.Subcommand;
 import me.maurxce.paidportals.dependency.required.VaultHook;
 import me.maurxce.paidportals.event.PlayerPayEvent;
@@ -24,7 +25,7 @@ public class PayCommand implements Subcommand {
 
     @Override
     public String execute(Context context) {
-        if (!context.isPlayer() ||  context.hasPermission("paidportals.pay")) {
+        if (!context.isPlayer() ||  context.hasPermission(Commands.PAY.getPermission())) {
             return Language.MISSING_PERMISSION;
         }
 
