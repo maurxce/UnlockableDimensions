@@ -17,8 +17,9 @@ public class EconomyRepository implements Syncable {
         this.poolBalance = database.getPoolBalance();
     }
 
-    public void addPoolBalance(BigDecimal balance) {
+    public BigDecimal addPoolBalance(BigDecimal balance) {
         this.poolBalance = poolBalance.add(balance);
+        return poolBalance;
     }
 
     @Override

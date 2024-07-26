@@ -19,8 +19,20 @@ public class DimensionRepository implements Syncable {
         this.permitted = List.of(World.Environment.NETHER, World.Environment.THE_END);
     }
 
+    public List<World.Environment> getLockedDimensions() {
+        return dimensions.entrySet()
+                .stream()
+                .filter(Map.Entry::getValue)
+                .map(Map.Entry::getKey)
+                .toList();
+    }
+
     public boolean isDimensionLocked(World.Environment environment) {
         return permitted.contains(environment) && dimensions.getOrDefault(environment, true);
+    }
+
+    public boolean allDimensionsUnlocked() {
+        return dimensions.values().stream().noneMatch(Boolean::booleanValue);
     }
 
     public void setDimensionLocked(World.Environment environment, boolean locked) {
