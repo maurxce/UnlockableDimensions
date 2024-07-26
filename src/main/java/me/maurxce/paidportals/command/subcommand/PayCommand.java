@@ -26,7 +26,7 @@ public class PayCommand implements Subcommand {
 
     @Override
     public String execute(Context context) {
-        if (!context.isPlayer() ||  context.hasPermission(Commands.PAY.getPermission())) {
+        if (!context.isPlayer() || !context.hasPermission(Commands.PAY.getPermission())) {
             return Language.MISSING_PERMISSION;
         }
 
