@@ -11,8 +11,12 @@ database:
 
   host: localhost
   port: 3306
-
   name: paidportals
+
+  minimum-idle: 1
+  maximum-pool-size: 5
+  idle-timeout: 30000
+
   username: portal_user
   password: ~
 
