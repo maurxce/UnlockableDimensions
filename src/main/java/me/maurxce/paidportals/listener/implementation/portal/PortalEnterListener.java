@@ -24,7 +24,6 @@ public class PortalEnterListener extends SimpleListener {
         this.vaultHook = plugin.getVaultHook();
     }
 
-    // @TODO needs to get TO environment
     @EventHandler
     public void onPortalEnter(PlayerPortalEvent event) {
         Player player = event.getPlayer();
