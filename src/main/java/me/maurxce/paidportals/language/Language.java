@@ -55,7 +55,7 @@ public class Language {
 
         POOL_BALANCE = fetch(lang, "POOL_BALANCE", "There are currently &l${amount} &rin the dimensions pool!");
         POOL_RESET = fetch(lang, "POOL_RESET", "The economy pool has been reset!");
-        POOL_GOAL = fetch(lang, "POOL_GOAL", "Goal for {dimension}: &l${amount}");
+        POOL_GOAL = fetch(lang, "POOL_GOAL", "Goal for &l{dimension}&r: &l${amount}");
 
         PLACEHOLDER_LOCKED = fetch(lang, "PLACEHOLDER_LOCKED", "&c&lLocked");
         PLACEHOLDER_UNLOCKED = fetch(lang, "PLACEHOLDER_UNLOCKED", "&a&lUnlocked");
