@@ -1,13 +1,7 @@
 package me.maurxce.paidportals.database.credentials;
 
 import com.zaxxer.hikari.HikariConfig;
-import md.schorn.spigothelper.logger.Logger;
-import me.maurxce.paidportals.PaidPortals;
-import me.maurxce.paidportals.database.Database;
 import org.bukkit.configuration.ConfigurationSection;
-
-import java.io.File;
-import java.io.IOException;
 
 public record Credentials(
         String host,
@@ -41,6 +35,11 @@ public record Credentials(
 
     public String getJdbcUrl() {
         return "jdbc:mysql://" + host + ":" + port + "/" + database;
+    }
+
+    public String getMongoUrl() {
+        return "mongodb+srv://" + username + ":" + password + "@" + host + ":" + port + "/" + database +
+                "?maxPoolSize=" + maxPoolSize + "&maxIdleTimeMS=" + idleTimeout;
     }
 
     public HikariConfig getHikariConfig() {
