@@ -9,7 +9,8 @@ public enum Commands {
     RELOAD("paidportals.reload", "reload"),
     RESET("paidportals.reset", "reset"),
     PAY("paidportals.pay", "pay", "<amount>"),
-    BALANCE("paidportals.balance", "balance");
+    BALANCE("paidportals.balance", "balance"),
+    GOAL("paidportals.goal", "goal");
 
     private final String permission;
     private final List<String> arguments;

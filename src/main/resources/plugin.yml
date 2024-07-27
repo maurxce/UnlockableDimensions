@@ -27,6 +27,10 @@ permissions:
     description: Permission to access the `/paidportals balance` command
     default: true
 
+  paidportals.goal:
+    description: Permission to access the `/paidportals goal` command
+    default: true
+
   paidportals.reload:
     description: Permission to access the `/paidportals reload` command
     default: op

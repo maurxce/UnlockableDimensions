@@ -27,6 +27,7 @@ public class CommandService extends CommandRouter {
         subcommands.put(FALLBACK, new InfoCommand());
         subcommands.put("pay", new PayCommand());
         subcommands.put("balance", new BalanceCommand());
+        subcommands.put("goal", new GoalCommand());
         subcommands.put("reload", new ReloadCommand());
         subcommands.put("reset", new ResetCommand());
 
