@@ -2,7 +2,7 @@ package me.maurxce.paidportals.database.query;
 
 public class Query {
     // ========== ECONOMY ==========
-    public static String CREATE_TABLE_ECONOMY = """
+    public static final String CREATE_TABLE_ECONOMY = """
     CREATE TABLE IF NOT EXISTS pp_economy (
         integrity ENUM("") NOT NULL,
         paid DECIMAL(8, 2) NOT NULL,
@@ -10,7 +10,7 @@ public class Query {
     );
     """;
 
-    public static String GET_POOL_BALANCE = """
+    public static final String GET_POOL_BALANCE = """
     SELECT paid
     FROM pp_economy;
     """;
@@ -22,7 +22,7 @@ public class Query {
     """;
 
     // ========== DIMENSIONS ==========
-    public static String CREATE_TABLE_DIMENSIONS = """
+    public static final String CREATE_TABLE_DIMENSIONS = """
     CREATE TABLE IF NOT EXISTS pp_dimensions (
         id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
         name VARCHAR(32) NOT NULL,
@@ -31,12 +31,18 @@ public class Query {
     );
     """;
 
-    public static String GET_DIMENSION_STATUS = """
+    public static final String INSERT_DIMENSIONS = """
+    INSERT IGNORE INTO pp_dimensions (name, is_locked)
+    ("NETHER", true),
+    ("THE_END", true);
+    """;
+
+    public static final String GET_DIMENSION_STATUS = """
     SELECT name, is_locked
     FROM pp_dimensions;
     """;
 
-    public static String SET_DIMENSION_STATUS = """
+    public static final String SET_DIMENSION_STATUS = """
     INSERT INTO pp_dimensions (name, is_locked)
     VALUES (?, ?)
     ON DUPLICATE KEY UPDATE is_locked = ?;

@@ -63,7 +63,11 @@ public class MySQL implements Database {
 
     @Override
     public void init(long start) {
-        String[] tables = { Query.CREATE_TABLE_ECONOMY, Query.CREATE_TABLE_DIMENSIONS };
+        String[] tables = {
+                Query.CREATE_TABLE_ECONOMY,
+                Query.CREATE_TABLE_DIMENSIONS,
+                Query.INSERT_DIMENSIONS
+        };
 
         try (Connection connection = dataSource.getConnection()) {
             for (String table : tables) {
