@@ -134,7 +134,7 @@ public class MongoDB implements Database {
                 Document update = new Document("$set", document);
                 UpdateOptions options = new UpdateOptions().upsert(true);
 
-                economy.updateOne(filter, update, options);
+                dimensions.updateOne(filter, update, options);
             }
         });
     }
