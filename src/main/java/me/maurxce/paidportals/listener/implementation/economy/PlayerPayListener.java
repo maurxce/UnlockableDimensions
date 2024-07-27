@@ -64,7 +64,7 @@ public class PlayerPayListener extends SimpleListener {
             }
 
             dimensionRepository.setDimensionLocked(environment, false);
-            String name = environment.toString().replace("_", "");
+            String name = environment.toString().replace("_", " ");
 
             String announcement = Language.UNLOCK_ANNOUNCEMENT
                     .replace("{dimension}", WordUtils.capitalizeFully(name));
