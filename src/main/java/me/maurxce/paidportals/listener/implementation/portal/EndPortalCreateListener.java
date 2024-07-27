@@ -39,7 +39,7 @@ public class EndPortalCreateListener extends PortalCreateListener {
             return;
         }
 
-        EquipmentSlot slot =  event.getHand();
+        EquipmentSlot slot = event.getHand();
         if (holdsEyeInMainHand && slot == EquipmentSlot.OFF_HAND) {
             return;
         }
@@ -49,8 +49,8 @@ public class EndPortalCreateListener extends PortalCreateListener {
         }
 
         World.Environment environment = World.Environment.THE_END;
-        boolean canCreate = allowCreation(player, environment);
-        if (canCreate) {
+        boolean success = process(player, environment);
+        if (success) {
             return;
         }
 

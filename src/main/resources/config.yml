@@ -35,8 +35,13 @@ the-end:
 
 # PORTAL SETTINGS
 # these settings apply before the dimension goal is reached
-player-portal-create: false
-player-portal-enter: false
+player-portal-create:
+  enabled: false
+  price: 0.00
+
+player-portal-enter:
+  enabled: false
+  price: 0.00
 
 #   Support
 #   https://schorn.md/github

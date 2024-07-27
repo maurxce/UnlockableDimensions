@@ -13,7 +13,10 @@ public class SettingsRepository {
     private final Map<World.Environment, BigDecimal> pool;
 
     private final boolean portalCreationAllowed;
+    private final double portalCreatePrice;
+
     private final boolean portalEnterAllowed;
+    private final double portalEnterPrice;
 
     public SettingsRepository(Config config) {
         this.poolEnabled = Map.of(
@@ -26,7 +29,10 @@ public class SettingsRepository {
                 World.Environment.THE_END, BigDecimal.valueOf(config.getDouble("the-end.unlock-amount", 0d))
         );
 
-        this.portalCreationAllowed = config.getBoolean("player-portal-create");
-        this.portalEnterAllowed = config.getBoolean("player-portal-enter");
+        this.portalCreationAllowed = config.getBoolean("player-portal-create.enabled");
+        this.portalCreatePrice = config.getDouble("player-portal-create.price");
+
+        this.portalEnterAllowed = config.getBoolean("player-portal-enter.enabled");
+        this.portalEnterPrice = config.getDouble("player-portal-enter.price");
     }
 }
