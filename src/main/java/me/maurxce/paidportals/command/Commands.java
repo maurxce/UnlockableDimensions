@@ -2,6 +2,8 @@ package me.maurxce.paidportals.command;
 
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 public enum Commands {
     RELOAD("paidportals.reload", "reload"),
@@ -10,10 +12,10 @@ public enum Commands {
     BALANCE("paidportals.balance", "balance");
 
     private final String permission;
-    private final String[] arguments;
+    private final List<String> arguments;
 
     Commands(String permission, String... arguments) {
         this.permission = permission;
-        this.arguments = arguments;
+        this.arguments = List.of(arguments);
     }
 }

@@ -37,24 +37,39 @@ public class CommandService extends CommandRouter {
     public List<String> tab(Context context) {
         List<String> args = context.args();
         List<String> completions = new ArrayList<>();
-        int size = args.size();
-
         List<String> suggestions = new ArrayList<>();
+
+        int size = args.size();
+        int index = size - 1;
+
+        String previousArgument = getArgument(args, index - 1);
+
         for (Commands command : Commands.values()) {
-            if (!context.hasPermission(command.getPermission())) {
+            String permission = command.getPermission();
+            List<String> commandArgs = command.getArguments();
+
+            if (!context.hasPermission(permission)) {
                 continue;
             }
 
-            String[] arguments = command.getArguments();
-            if (arguments.length < size) {
+            String argument = getArgument(commandArgs, index);
+            if (argument == null) {
                 continue;
             }
 
-            String argument = arguments[size - 1];
+            String previous = getArgument(commandArgs, index - 1);
+            if (previous != null && !previous.equals(previousArgument)) {
+                continue;
+            }
+
             suggestions.add(argument);
         }
 
         StringUtil.copyPartialMatches(args.get(size - 1), suggestions, completions);
         return completions;
+    }
+
+    private String getArgument(List<String> list, int index) {
+        return (index >= 0 && list.size() > index) ? list.get(index) : null;
     }
 }
