@@ -87,7 +87,6 @@ public class MongoDB implements Database {
             return BigDecimal.valueOf(paid);
         }
 
-        Logger.warning("Unable to get pool balance!");
         return BigDecimal.ZERO;
     }
 
