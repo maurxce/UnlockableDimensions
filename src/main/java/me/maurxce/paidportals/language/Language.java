@@ -17,6 +17,9 @@ public class Language {
     public static final String PORTAL_CREATION_DISABLED;
     public static final String PORTAL_ENTER_DISABLED;
 
+    public static final String PORTAL_CREATE_PAYMENT;
+    public static final String PORTAL_ENTER_PAYMENT;
+
     public static final String RELOADING;
     public static final String RELOADED;
 
@@ -46,6 +49,9 @@ public class Language {
 
         PORTAL_CREATION_DISABLED = fetch(lang, "PORTAL_CREATION_DISABLED", "&cPortal creation is currently disabled!");
         PORTAL_ENTER_DISABLED = fetch(lang, "PORTAL_ENTER_DISABLED", "&cThis dimension is still locked!");
+
+        PORTAL_CREATE_PAYMENT = fetch(lang, "PORTAL_CREATE_PAYMENT", "Paid &l${amount}&r for creating a portal to &l{dimension}");
+        PORTAL_ENTER_PAYMENT = fetch(lang, "PORTAL_ENTER_PAYMENT", "Paid &l${amount}&r for entering &l{dimension}");
 
         RELOADING = fetch(lang, "RELOADING", "&aReloading files...");
         RELOADED = fetch(lang, "RELOADED", "&aReloaded files.");

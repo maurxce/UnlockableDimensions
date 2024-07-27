@@ -49,7 +49,7 @@ public class EndPortalCreateListener extends PortalCreateListener {
         }
 
         World.Environment environment = World.Environment.THE_END;
-        boolean success = process(player, environment);
+        boolean success = allowCreation(player, environment);
         if (success) {
             return;
         }

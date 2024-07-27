@@ -8,6 +8,9 @@ POOL_CLOSED: "All dimensions have been unlocked already."
 PORTAL_CREATION_DISABLED: "&cPortal creation is currently disabled!"
 PORTAL_ENTER_DISABLED: "&cThis dimension is still locked!"
 
+PORTAL_CREATE_PAYMENT: "Paid &l${amount}&r for creating a portal to &l{dimension}"
+PORTAL_ENTER_PAYMENT: "Paid &l${amount}&r for entering &l{dimension}"
+
 RELOADING: "&aReloading files..."
 RELOADED: "&aReloaded files."
 

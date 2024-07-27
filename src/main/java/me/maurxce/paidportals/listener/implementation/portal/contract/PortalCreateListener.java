@@ -6,6 +6,7 @@ import me.maurxce.paidportals.dependency.required.VaultHook;
 import me.maurxce.paidportals.language.Language;
 import me.maurxce.paidportals.repository.DimensionRepository;
 import me.maurxce.paidportals.repository.SettingsRepository;
+import org.apache.commons.lang.WordUtils;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
@@ -24,40 +25,44 @@ public abstract class PortalCreateListener extends SimpleListener {
         this.vaultHook = plugin.getVaultHook();
     }
 
-    public boolean process(Player player, World.Environment environment) {
-        boolean canCreate = allowCreation(player, environment);
-        if (canCreate) {
-            return true;
-        }
-
-        boolean success = withdrawPrice(player);
-        if (success) {
-            return true;
-        }
-
-        return false;
-    }
-
     public boolean allowCreation(Player player, World.Environment environment) {
-        return !poolEnabled.containsKey(environment) ||
-                player.hasPermission("paidportals.ignore") ||
-                settingsRepository.isPortalCreationAllowed() ||
-                !dimensionRepository.isDimensionLocked(environment);
+        boolean shouldIgnore = player.hasPermission("paidportals.ignore");
+        if (shouldIgnore) {
+            return true;
+        }
+
+        boolean isLocked = dimensionRepository.isDimensionLocked(environment);
+        if (isLocked) {
+            return false;
+        }
+
+        boolean isCreationAllowed = settingsRepository.isPortalCreationAllowed();
+        if (isCreationAllowed) {
+            return true;
+        }
+
+        return withdrawPrice(player, environment);
     }
 
-    public boolean withdrawPrice(Player player) {
+    public boolean withdrawPrice(Player player, World.Environment environment) {
         double price = settingsRepository.getPortalCreatePrice();
+        if (price <= 0) {
+            return true;
+        }
+
         if (!vaultHook.hasBalance(player, price)) {
             player.sendMessage(Language.INSUFFICIENT_FUNDS);
             return false;
         }
 
         boolean success = vaultHook.withdraw(player, price);
-        if (!success) {
-            player.sendMessage(Language.GENERIC_ERROR);
-            return false;
-        }
 
-        return true;
+        String name = environment.toString().replace("_", " ");
+        String message = !success ? Language.GENERIC_ERROR : Language.PORTAL_CREATE_PAYMENT
+                .replace("{amount}", String.valueOf(price))
+                .replace("{dimension}", WordUtils.capitalizeFully(name));
+
+        player.sendMessage(message);
+        return success;
     }
 }
