@@ -17,8 +17,8 @@ public class SettingsRepository {
 
     public SettingsRepository(Config config) {
         this.poolEnabled = Map.of(
-                World.Environment.NETHER, config.getBoolean("nether.enabled"),
-                World.Environment.THE_END, config.getBoolean("the-end.enabled")
+                World.Environment.NETHER, config.getBoolean("nether.enable"),
+                World.Environment.THE_END, config.getBoolean("the-end.enable")
         );
 
         this.pool = Map.of(
