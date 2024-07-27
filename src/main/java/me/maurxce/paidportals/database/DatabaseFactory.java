@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import md.schorn.spigothelper.configuration.Config;
 import md.schorn.spigothelper.logger.Logger;
 import me.maurxce.paidportals.PaidPortals;
+import me.maurxce.paidportals.database.implementation.MongoDB;
 import me.maurxce.paidportals.database.implementation.MySQL;
 
 @RequiredArgsConstructor
@@ -16,7 +17,7 @@ public class DatabaseFactory {
 
         return switch (type.toUpperCase()) {
             case "MYSQL" -> new MySQL(plugin);
-            case "MONGODB" -> null;
+            case "MONGODB" -> new MongoDB(plugin);
             default -> {
                 Logger.severe("Invalid database configuration!");
                 plugin.disable();

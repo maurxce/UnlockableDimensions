@@ -38,8 +38,8 @@ public record Credentials(
     }
 
     public String getMongoUrl() {
-        return "mongodb+srv://" + username + ":" + password + "@" + host + ":" + port + "/" + database +
-                "?maxPoolSize=" + maxPoolSize + "&maxIdleTimeMS=" + idleTimeout;
+        return "mongodb://" + username + ":" + password + "@" + host + ":" + port + "/" +
+                "?authMechanism=SCRAM-SHA-256" + "&maxPoolSize=" + maxPoolSize + "&maxIdleTimeMS=" + idleTimeout;
     }
 
     public HikariConfig getHikariConfig() {
