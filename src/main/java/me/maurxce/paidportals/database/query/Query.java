@@ -25,7 +25,7 @@ public class Query {
     public static final String CREATE_TABLE_DIMENSIONS = """
     CREATE TABLE IF NOT EXISTS pp_dimensions (
         id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
-        name VARCHAR(32) NOT NULL,
+        name VARCHAR(8) NOT NULL,
         is_locked BOOLEAN NOT NULL,
         PRIMARY KEY (id)
     );
