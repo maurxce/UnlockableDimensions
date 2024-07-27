@@ -67,13 +67,15 @@ public class MongoDB implements Database {
     }
 
     private void addDimension(World.Environment environment) {
+        Document filter = new Document("name", environment.toString());
+
         Document document = new Document("name", environment.toString())
                 .append("isLocked", true);
 
-        Document update = new Document("$set", document);
+        Document update = new Document("$setOnInsert", document);
         UpdateOptions updateOptions = new UpdateOptions().upsert(true);
 
-        dimensions.updateOne(document, update, updateOptions);
+        dimensions.updateOne(filter, update, updateOptions);
     }
 
     @Override
