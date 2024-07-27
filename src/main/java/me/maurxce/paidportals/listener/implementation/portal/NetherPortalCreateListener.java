@@ -25,7 +25,7 @@ public class NetherPortalCreateListener extends PortalCreateListener {
         }
 
         World.Environment environment = World.Environment.NETHER;
-        boolean success = process(player, environment);
+        boolean success = allowCreation(player, environment);
         if (success) {
             return;
         }
