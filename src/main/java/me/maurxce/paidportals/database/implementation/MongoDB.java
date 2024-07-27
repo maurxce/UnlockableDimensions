@@ -93,7 +93,7 @@ public class MongoDB implements Database {
     @Override
     public CompletableFuture<Void> setPoolBalance(BigDecimal amount) {
         return CompletableFuture.runAsync(() -> {
-            Document document = new Document("paid", amount);
+            Document document = new Document("paid", amount.doubleValue());
 
             Document update = new Document("$set", document);
             UpdateOptions options = new UpdateOptions().upsert(true);
