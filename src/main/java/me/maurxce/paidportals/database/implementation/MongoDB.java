@@ -95,12 +95,15 @@ public class MongoDB implements Database {
     @Override
     public CompletableFuture<Void> setPoolBalance(BigDecimal amount) {
         return CompletableFuture.runAsync(() -> {
+            Document exists = new Document("$exists", true);
+            Document filter = new Document("paid", exists);
+
             Document document = new Document("paid", amount.doubleValue());
 
             Document update = new Document("$set", document);
             UpdateOptions options = new UpdateOptions().upsert(true);
 
-            economy.updateOne(document, update, options);
+            economy.updateOne(filter, update, options);
         });
     }
 
