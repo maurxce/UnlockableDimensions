@@ -16,7 +16,7 @@ UNLOCK_ANNOUNCEMENT: "&l{dimension} &rhas been unlocked!"
 
 POOL_BALANCE: "There are currently &l${amount} &rin the dimensions pool!"
 POOL_RESET: "The economy pool has been reset!"
-POOL_GOAL: "Goal for {dimension}: &l${amount}}"
+POOL_GOAL: "Goal for {dimension}: &l${amount}"
 
 PLACEHOLDER_LOCKED: "&c&lLocked"
 PLACEHOLDER_UNLOCKED: "&a&lUnlocked"
