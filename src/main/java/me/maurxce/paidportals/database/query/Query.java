@@ -32,7 +32,7 @@ public class Query {
     """;
 
     public static final String INSERT_DIMENSIONS = """
-    INSERT IGNORE INTO pp_dimensions (name, is_locked)
+    INSERT IGNORE INTO pp_dimensions (name, is_locked) VALUES
     ("NETHER", true),
     ("THE_END", true);
     """;
