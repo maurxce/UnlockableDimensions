@@ -8,6 +8,7 @@ import me.maurxce.paidportals.language.Language;
 import me.maurxce.paidportals.repository.DimensionRepository;
 import me.maurxce.paidportals.repository.EconomyRepository;
 import me.maurxce.paidportals.repository.SettingsRepository;
+import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -63,9 +64,10 @@ public class PlayerPayListener extends SimpleListener {
             }
 
             dimensionRepository.setDimensionLocked(environment, false);
+            String name = environment.toString().replace("_", "");
 
             String announcement = Language.UNLOCK_ANNOUNCEMENT
-                    .replace("{dimension}", environment.toString().replace("_", " "));
+                    .replace("{dimension}", WordUtils.capitalizeFully(name));
 
             Bukkit.broadcastMessage(Chat.translate(announcement));
         }
