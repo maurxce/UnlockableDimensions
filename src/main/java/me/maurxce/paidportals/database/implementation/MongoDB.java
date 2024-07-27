@@ -59,16 +59,21 @@ public class MongoDB implements Database {
 
     @Override
     public void init(long start) {
-        Document document = new Document("NETHER", true)
-                .append("THE_END", true);
+        addDimension(World.Environment.NETHER);
+        addDimension(World.Environment.THE_END);
+
+        long duration = System.currentTimeMillis() - start;
+        Logger.info("Database initialized! (%d ms) ", duration);
+    }
+
+    private void addDimension(World.Environment environment) {
+        Document document = new Document("name", environment.toString())
+                .append("isLocked", true);
 
         Document update = new Document("$set", document);
         UpdateOptions updateOptions = new UpdateOptions().upsert(true);
 
         dimensions.updateOne(document, update, updateOptions);
-
-        long duration = System.currentTimeMillis() - start;
-        Logger.info("Database initialized! (%d ms) ", duration);
     }
 
     @Override
