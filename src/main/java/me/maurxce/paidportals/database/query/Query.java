@@ -4,7 +4,7 @@ public class Query {
     // ========== ECONOMY ==========
     public static final String CREATE_TABLE_ECONOMY = """
     CREATE TABLE IF NOT EXISTS pp_economy (
-        integrity ENUM("") NOT NULL,
+        integrity ENUM('keep') NOT NULL,
         paid DECIMAL(8, 2) NOT NULL,
         PRIMARY KEY (integrity)
     );
@@ -33,8 +33,8 @@ public class Query {
 
     public static final String INSERT_DIMENSIONS = """
     INSERT IGNORE INTO pp_dimensions (name, is_locked) VALUES
-    ("NETHER", true),
-    ("THE_END", true);
+    ('NETHER', true),
+    ('THE_END', true);
     """;
 
     public static final String GET_DIMENSION_STATUS = """
