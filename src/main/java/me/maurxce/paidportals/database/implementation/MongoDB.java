@@ -33,17 +33,17 @@ public class MongoDB implements Database {
 
         Config config = plugin.getConfig();
         ConfigurationSection section = config.getConfigurationSection("database");
-        Credentials credentials = Credentials.from(section);
+        Credentials credentials = Credentials.from(section).withMongo();
 
-        if (!credentials.isValid()) {
+        if (credentials.isInvalid()) {
             Logger.severe("Database configuration is invalid!");
             plugin.disable();
             return null;
         }
 
-        this.client = MongoClients.create(credentials.getMongoUrl());
+        this.client = MongoClients.create(credentials.getConnectionUrl());
 
-        MongoDatabase database = client.getDatabase(credentials.database());
+        MongoDatabase database = client.getDatabase(credentials.getDatabase());
         this.economy = database.getCollection("economy");
         this.dimensions = database.getCollection("dimensions");
 

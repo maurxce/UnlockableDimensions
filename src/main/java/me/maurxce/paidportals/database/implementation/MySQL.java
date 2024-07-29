@@ -30,10 +30,11 @@ public class MySQL implements Database {
         Logger.info("Initializing Database...");
 
         Config config = plugin.getConfig();
-        ConfigurationSection database = config.getConfigurationSection("database");
-        Credentials credentials = Credentials.from(database);
+        ConfigurationSection section = config.getConfigurationSection("database");
+        //OldCredentials credentials = OldCredentials.from(database);
+        Credentials credentials = Credentials.from(section).withMySQL();
 
-        if (!credentials.isValid()) {
+        if (credentials.isInvalid()) {
             Logger.severe("Database configuration is invalid!");
             plugin.disable();
             return null;
