@@ -75,7 +75,7 @@ public class Credentials {
         }
 
         public Credentials withH2() {
-            File file = new File(PaidPortals.getInstance().getDataFolder(), "data.db");
+            File file = new File(PaidPortals.getInstance().getDataFolder(), "/data/data.db");
             this.driver = "org.h2.Driver";
             this.connectionUrl = "jdbc:h2:file:" + file.getAbsolutePath() + ";MODE=MySQL";
 
