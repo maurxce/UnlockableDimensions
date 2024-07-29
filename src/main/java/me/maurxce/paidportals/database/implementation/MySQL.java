@@ -31,7 +31,6 @@ public class MySQL implements Database {
 
         Config config = plugin.getConfig();
         ConfigurationSection section = config.getConfigurationSection("database");
-        //OldCredentials credentials = OldCredentials.from(database);
         Credentials credentials = Credentials.from(section).withMySQL();
 
         if (credentials.isInvalid()) {
