@@ -19,6 +19,7 @@ public class Credentials {
     private final int minIdle;
     private final int maxPoolSize;
     private final int idleTimeout;
+    private final String driver;
     private final String connectionUrl;
 
     public static final CredentialsBuilder INVALID = Credentials.builder()
@@ -53,6 +54,7 @@ public class Credentials {
 
     public HikariConfig getHikariConfig() {
         HikariConfig config = new HikariConfig();
+        config.setDriverClassName(driver);
         config.setJdbcUrl(connectionUrl);
         config.setUsername(username);
         config.setPassword(password);
@@ -66,6 +68,7 @@ public class Credentials {
 
     public static class CredentialsBuilder {
         public Credentials withMySQL() {
+            this.driver = "com.mysql.jdbc.Driver";
             this.connectionUrl = "jdbc:mysql://" + host + ":" + port + "/" + database;
 
             return this.build();
@@ -73,6 +76,7 @@ public class Credentials {
 
         public Credentials withH2() {
             File file = new File(PaidPortals.getInstance().getDataFolder(), "data.db");
+            this.driver = "org.h2.Driver";
             this.connectionUrl = "jdbc:h2:file:" + file.getAbsolutePath() + ";MODE=MySQL";
 
             return this.build();
